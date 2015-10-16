@@ -20,13 +20,11 @@
 #define CONFIG_ENV_IS_NOWHERE
 
 #ifndef CONFIG_SPL_BUILD
+#ifndef CONFIG_FIT
 # define CONFIG_FIT
+#endif
 # define CONFIG_TIMESTAMP
 # define CONFIG_LZO
-# ifdef CONFIG_ENABLE_VBOOT
-#  define CONFIG_FIT_SIGNATURE
-#  define CONFIG_RSA
-# endif
 #endif
 
 #define CONFIG_SYS_BOOTM_LEN		(16 << 20)
@@ -426,6 +424,7 @@
 #define CONFIG_SYS_NAND_BLOCK_SIZE	(128*1024)
 /* NAND: driver related configs */
 #define CONFIG_NAND_OMAP_GPMC
+#define CONFIG_NAND_OMAP_GPMC_PREFETCH
 #define CONFIG_NAND_OMAP_ELM
 #define CONFIG_SYS_NAND_BAD_BLOCK_POS	NAND_LARGE_BADBLOCK_POS
 #define CONFIG_SYS_NAND_ECCPOS		{ 2, 3, 4, 5, 6, 7, 8, 9, \
